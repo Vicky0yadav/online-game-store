@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+
+        .dashboard-container {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .menu-container {
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2;
+        }
+
+        .menu-item {
+            margin-bottom: 10px;
+        }
+
+        .game-options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .game-option {
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .search-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+
+}
+
+#search-bar {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+#search-button {
+  padding: 8px;
+  background-color: #4caf50;
+  color: #fff;
+  border: 1px solid #4caf50;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+#search-button:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+}
+
+/* Optional: Hover effect on the button */
+#search-button:hover {
+  background-color: #45a049; /* Change the hover background color as needed */
+  border-color: #45a049; /* Match the hover background color */
+}
+
+
+
+
+   
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="video-background">
+        <!-- Placeholder video source, will be dynamically updated -->
+        <source id="video-source" src="./video/call.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    
+    
+
+    <div class="menu-container">
+        <div class="menu-item"><a href="#">Home</a></div>
+        <div class="menu-item"><a href="#">About</a></div>
+        <div class="menu-item"><a href="#">Contact</a></div>
+    </div>
+
+   
+    <div class="dashboard-container">
+       
+        <h1>Welcome to the Game Store </h1>
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search...">
+            <button id="search-button">Search</button>
+          </div>
+    
+
+        <div class="game-options">
+            <button class="game-option">Sell Game</button>
+            <img src="./photo/banner.jpg" alt="Game 1">
+            <button class="game-option">Purchase Game</button>
+        </div>
+
+        <!-- Additional content goes here -->
+
+        <div class="dashboard-content">
+            <h2>Featured Games</h2>
+            <p>Check out our latest and greatest games!</p>
+
+        
+            <!-- Example game cards -->
+            <div class="game-card">
+                <img src="./photo/c1.jpg" alt="Game 1">
+                <h3>Game 1</h3>
+                <p>Description of Game 1.</p>
+            </div>
+        
+            <div class="game-card">
+                <img src="./photo/c.jpg" alt="Game 2">
+                <h3>Game 2</h3>
+                <p>Description of Game 2.</p>
+            </div>
+        
+            <!-- Add more game cards as needed -->
+        
+            <h2>News and Updates</h2>
+            <p>Stay tuned for the latest gaming news and updates.</p>
+        
+            <!-- Example news articles -->
+            <div class="news-article">
+                <h3>Exciting Announcement!</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit....</p>
+            </div>
+        
+            <div class="news-article">
+                <h3>Upcoming Events</h3>
+                <p>Don't miss out on the upcoming gaming events in your area.</p>
+            </div>
+        
+            <!-- Add more news articles as needed -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Game Store</p>
+      </footer> 
+
+    <script>
+        // Array of video sources
+        const videoSources = [
+            "./video/call1.mp4",
+            "./video/call.mp4",
+            "./video/call.mp4",
+            // Add more video sources as needed
+        ];
+       
+
+        // Get the video element and source element
+        const video = document.getElementById('video-background');
+        const videoSource = document.getElementById('video-source');
+
+        // Function to change video source every second
+        function changeVideoSource() {
+            let index = 0;
+
+            setInterval(() => {
+                videoSource.src = videoSources[index];
+                video.load();
+                index = (index + 1) % videoSources.length;
+            }, 1000);
+        }
+
+        // Call the function to start changing the video source
+        changeVideoSource();
+    </script>
+
+</body>
+</html>

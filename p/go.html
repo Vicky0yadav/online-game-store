@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Search</title>
+  <script async src="https://cse.google.com/cse.js?cx=70923240bda7b4e6d">
+</script>
+<div class="gcse-search"></div>
+</head>
+<body>
+  <input type="text" id="searchInput">
+  <button onclick="performSearch()">Search</button>
+  <div class="gcse-search"></div>
+
+  <script>
+    function performSearch() {
+      var query = document.getElementById('searchInput').value;
+
+      // Use the 'gsc-search-button' class to trigger the search
+      var searchButton = document.querySelector('.gsc-search-button');
+      
+      // Set the search query
+      var searchInput = document.querySelector('.gsc-input');
+      searchInput.value = query;
+
+      // Trigger the search button click event
+      var clickEvent = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+        view: window
+      });
+      searchButton.dispatchEvent(clickEvent);
+    }
+  </script>
+</body>
+</html>
